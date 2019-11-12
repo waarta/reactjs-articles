@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllArticles } from "../actions/articles";
+import ItemListArticles from "../components/ItemListArticle";
 
 class ListArticles extends Component {
   componentDidMount() {
-    this.props.getAllArticles();
+    const { articles } = this.props.articles;
+    articles.length === 0 && this.props.getAllArticles();
   }
 
   render() {
     const { articles } = this.props.articles;
-    return <div className="main"></div>;
+    return (
+      <div className="main">
+        {articles.map((article, key) => (
+          <ItemListArticles {...{ article, key }} />
+        ))}
+      </div>
+    );
   }
 }
 
