@@ -13,8 +13,8 @@ class ListArticles extends Component {
     const { articles } = this.props.articles;
     return (
       <div className="main">
-        {articles.map((article, key) => (
-          <ItemListArticles {...{ article, key }} />
+        {articles.map((article, index) => (
+          <ItemListArticles key={index} {...{ article }} />
         ))}
       </div>
     );

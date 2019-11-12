@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core";
 import T from "prop-types";
+import { deleteArticle } from "../actions/articles";
 
 /* override style Card */
 const StyledCard = withStyles({
@@ -22,7 +26,10 @@ class ItemListArticles extends Component {
   };
 
   render() {
-    const { title, text, author } = this.props.article;
+    // articles -> articles reducers
+    // article -> current article
+    const { articles, article, deleteArticle } = this.props;
+    const { title, text, author } = article;
 
     return (
       <StyledCard>
@@ -35,9 +42,26 @@ class ItemListArticles extends Component {
             {text}
           </Typography>
         </CardContent>
+        <CardActions>
+          <Button
+            onClick={() => deleteArticle(articles.articles, article)}
+            size="small"
+          >
+            Delete
+          </Button>
+        </CardActions>
       </StyledCard>
     );
   }
 }
 
-export default ItemListArticles;
+const mapStateToProps = state => ({
+  articles: state.articles
+});
+
+const mapDispatchToProps = dispatch => ({
+  deleteArticle: (allArticles, articleToRemove) =>
+    dispatch(deleteArticle(allArticles, articleToRemove))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemListArticles);
