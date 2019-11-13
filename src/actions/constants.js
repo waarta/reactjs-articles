@@ -8,3 +8,8 @@ export const GET_ALL_ARTICLES_ERROR = "GET_ALL_ARTICLES_ERROR"; // dispatch erro
 export const DELETE_ARTICLE_LOADING = "DELETE_ARTICLE_LOADING"; // dispatch loading when calling an api
 export const DELETE_ARTICLE_SUCCESS = "DELETE_ARTICLE_SUCCESS"; // dispatch success when the response success
 export const DELETE_ARTICLE_ERROR = "DELETE_ARTICLE_ERROR"; // dispatch error when the response failed
+
+//ADD ARTICLE
+export const ADD_ARTICLE_LOADING = "ADD_ARTICLE_LOADING"; // dispatch loading when calling an api
+export const ADD_ARTICLE_SUCCESS = "ADD_ARTICLE_SUCCESS"; // dispatch success when the response success
+export const ADD_ARTICLE_ERROR = "ADD_ARTICLE_ERROR"; // dispatch error when the response failed

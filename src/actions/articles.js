@@ -1,4 +1,8 @@
-import { GET_ALL_ARTICLES_SUCCESS, DELETE_ARTICLE_SUCCESS } from "./constants";
+import {
+  GET_ALL_ARTICLES_SUCCESS,
+  DELETE_ARTICLE_SUCCESS,
+  ADD_ARTICLE_SUCCESS
+} from "./constants";
 import { ARTICLES } from "../fixtures/articles";
 
 export const getAllArticles = () => async dispatch => {
@@ -19,5 +23,11 @@ export const deleteArticle = (
   dispatch({
     type: DELETE_ARTICLE_SUCCESS,
     articles: newArticles
+  });
+};
+export const addArticle = article => async dispatch => {
+  dispatch({
+    type: ADD_ARTICLE_SUCCESS,
+    article
   });
 };

@@ -1,6 +1,7 @@
 import {
   GET_ALL_ARTICLES_SUCCESS,
-  DELETE_ARTICLE_SUCCESS
+  DELETE_ARTICLE_SUCCESS,
+  ADD_ARTICLE_SUCCESS
 } from "../actions/constants";
 
 const initialState = {
@@ -18,6 +19,11 @@ const articles = (state = initialState, action) => {
       return {
         ...state,
         articles: [...action.articles]
+      };
+    case ADD_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        articles: [...state.articles.concat(action.article)]
       };
     default:
       return state;
